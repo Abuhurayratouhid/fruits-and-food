@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contaxt/AuthProvider';
 
 const SignUp = () => {
-    const {createUser} = useContext(AuthContext)
+    const {createUser,updateUser} = useContext(AuthContext)
     const handleSignUp= (event)=>{
         event.preventDefault();
         const form = event.target;
@@ -16,11 +16,27 @@ const SignUp = () => {
         createUser(email,password)
         .then(result => {
             const user = result.user;
+            // updateUser
+            handleUserUpdate(name,photoURL)
             console.log(user)
         })
-        .then(error => {
+        .catch(error => {
             console.log(error)
         })
+        
+        const handleUserUpdate = (name, photoURL)=>{
+            const user= {
+                displayName: name,
+                photoURL: photoURL
+            }
+            updateUser(user)
+            .then(()=>{
+
+            })
+            .catch(e => {
+                console.log(e)
+            })
+        }
 
 
         // console.log(form, name, photoURL, email,password)

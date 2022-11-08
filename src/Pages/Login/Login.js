@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Contaxt/AuthProvider';
 
 const Login = () => {
+    const {userLogin} = useContext(AuthContext);
+    const handleLogin = (event)=>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        // console.log(email, password)
+        userLogin(email, password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(error=> {
+            console.log(error)
+        })
+    }
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -10,9 +27,9 @@ const Login = () => {
                     <p className="py-6">We respect your privacy. Sign up here and create your account. we will never send you a single message without your benefits</p>
                 </div>
                 <div className="card flex-shrink-0 md:w-1/2 md:h-[350px] shadow-2xl bg-gradient-to-r from-yellow-200  to-red-300">
-                    <form className="card-body">
                         
-                        
+                     {/* login form     */}
+                    <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
