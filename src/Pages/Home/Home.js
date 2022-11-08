@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Achievement from '../../OthersComponents/Achievement';
+import Carousel from '../../OthersComponents/Carousel';
 import ServiceCart from '../../OthersComponents/ServiceCart';
 import Banner from './Banner/Banner';
 import Services from './Services/Services';
@@ -24,7 +26,12 @@ const Home = () => {
                     ></ServiceCart>)
                 }
             </div>
-           <h1 className='text-center mt-5 mb-5'><Link to='/allServices'><button className="btn border-none bg-gradient-to-r from-yellow-500  to-red-500">See all services </button></Link> </h1>
+            <div>
+            <h1 className='text-center mt-5 mb-5'><Link to='/allServices'><button className="btn border-none bg-gradient-to-r from-yellow-500  to-red-500">See all services </button></Link> </h1>
+
+            </div>
+            <Achievement></Achievement>
+           <Carousel></Carousel>
         </div>
     );
 };
