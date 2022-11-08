@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contaxt/AuthProvider';
+import logo from '../../Assets/logo.png'
 
 const Header = () => {
     const {user, logoutUser} = useContext(AuthContext)
@@ -30,12 +31,25 @@ const Header = () => {
                         <Link className='ml-3' to='/about'><li>About</li></Link>
                     </ul>
                 </div>
-                <Link> <p className="btn btn-ghost normal-case text-xl">daisyUI</p></Link>
+                {/* <Link> <p className="btn bg-base-100 text-black border-none  text-xl"><img className='h-10' src={logo} alt="" />  FRUITSPLANET</p></Link> */}
+                <Link className='flex ' to='/'>
+                    <img className='h-14 ' src={logo} alt="" />
+                  <button className='text-2xl'>  FRUITSPLANET</button>
+                    </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     <Link to='/'><li>Home</li></Link>
-                    <Link className='ml-5' to='/signUp'><li>Sign up</li></Link>
+                    {
+                        user?.email ?
+                        <>
+                        <Link className='ml-5' to='/signUp'><li>My reviews</li></Link>
+                        <Link className='ml-5' to='/signUp'><li>Add service</li></Link>
+
+                        </>
+                        :
+                        <Link className='ml-5' to='/signUp'><li>Sign up</li></Link>
+                    }
                     <Link className='ml-5' to='/blog'><li>Blog</li></Link>
                     <Link className='ml-5' to='/about'><li>About</li></Link>
 
@@ -50,7 +64,7 @@ const Header = () => {
                     :
                     <Link className='mr-5' to='/login'>login</Link>
                 }
-                <img className='h-10 rounded-full' src={user?.photoURL} alt='' />
+                <img className='h-10 w-10 rounded-full' src={user?.photoURL} alt='' />
             </div>
         </div>
     );
