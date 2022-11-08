@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Contaxt/AuthProvider';
 
 const SignUp = () => {
+    const {createUser} = useContext(AuthContext)
+    const handleSignUp= (event)=>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        createUser(email,password)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+        })
+        .then(error => {
+            console.log(error)
+        })
+
+
+        // console.log(form, name, photoURL, email,password)
+    }
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -11,7 +33,9 @@ const SignUp = () => {
                     <p className="py-6">We respect your privacy. Sign up here and create your account. we will never send you a single message without your benefits</p>
                 </div>
                 <div className="card flex-shrink-0 md:w-1/2 md:h-[550px] shadow-2xl bg-gradient-to-r from-yellow-200  to-red-300">
-                    <form className="card-body">
+                    {/* signUp form  */}
+
+                    <form onSubmit={handleSignUp} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name </span>
