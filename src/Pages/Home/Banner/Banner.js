@@ -6,7 +6,7 @@ const Banner = () => {
             <div className="hero-content flex-col lg:flex-row ">
                 <div className='bg-slate-100  md:h-[30rem] p-10 md:rounded-r-full'>
                     <h1 className="text-5xl font-bold md:pt-20"><span className='text-yellow-300'>Fruits</span> & <span className='text-red-900'>food</span> <br /> delivery service</h1>
-                    <p className="py-6">Fresh fruits and organic  vegetables. also natural and healthy food.  Eat health and be happy in your life.</p>
+                    <p className="py-6">Fresh fruits and organic  vegetables. also natural and healthy food.  Eat healthy food and be happy in your life.</p>
                     <button className="btn border-none bg-gradient-to-r from-yellow-500  to-red-500">Order now </button>
                 </div>
                 <div>
