@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { BsArrowRight } from "react-icons/bs";
+import { FcGoogle } from "react-icons/fc";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contaxt/AuthProvider';
 
 const SignUp = () => {
-    const {createUser,updateUser} = useContext(AuthContext)
+    const {createUser,updateUser,googleLogin} = useContext(AuthContext)
     const handleSignUp= (event)=>{
         event.preventDefault();
         const form = event.target;
@@ -41,6 +41,11 @@ const SignUp = () => {
 
         // console.log(form, name, photoURL, email,password)
     }
+    // login with google 
+    const handleGoogleLogin= ()=>{
+        googleLogin()
+
+    }
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
@@ -48,7 +53,7 @@ const SignUp = () => {
                     <h1 className="text-5xl font-bold">Sign up</h1>
                     <p className="py-6">We respect your privacy. Sign up here and create your account. we will never send you a single message without your benefits</p>
                 </div>
-                <div className="card flex-shrink-0 md:w-1/2 md:h-[550px] shadow-2xl bg-gradient-to-r from-yellow-200  to-red-300">
+                <div className="card flex-shrink-0 md:w-1/2 md:h-[600px] shadow-2xl bg-gradient-to-r from-yellow-200  to-red-300">
                     {/* signUp form  */}
 
                     <form onSubmit={handleSignUp} className="card-body">
@@ -80,9 +85,13 @@ const SignUp = () => {
                                 <p className="label-text-alt link link-hover">Already have an account? <span className='text-2xl text-blue-900'>login</span></p>
                                 </Link>
                             </label>
+                            
                         </div>
-                        <div className="form-control mt-6">
+                        <div className="form-control ">
                             <button className="btn bg-gradient-to-r from-yellow-300  to-red-500 ">Sign up</button>
+                        </div>
+                        <div className="form-control ">
+                            <button onClick={handleGoogleLogin} className="btn text-primary bg-slate-300 text-3xl "><FcGoogle></FcGoogle></button>
                         </div>
                     </form>
                 </div>
