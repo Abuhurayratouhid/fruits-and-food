@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import Achievement from '../../OthersComponents/Achievement';
 import Carousel from '../../OthersComponents/Carousel';
 import ServiceCart from '../../OthersComponents/ServiceCart';
+import Footer from '../../shared/Footer/Footer';
 import Banner from './Banner/Banner';
 import Services from './Services/Services';
+
 
 const Home = () => {
     const [services, setServices]= useState([])
@@ -32,6 +34,7 @@ const Home = () => {
             </div>
             <Achievement></Achievement>
            <Carousel></Carousel>
+           <Footer></Footer>
         </div>
     );
 };
