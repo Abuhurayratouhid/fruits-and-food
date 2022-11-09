@@ -1,14 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Contaxt/AuthProvider';
+import OthersReviewCart from './OthersReviewCart';
 
 const ServiceDetails = () => {
+    const [someReview, setSomeReview] = useState([])
+    console.log(someReview)
     const { user } = useContext(AuthContext)
     const service = useLoaderData()
     const { name, picture, details, _id, price, rating } = service;
 
     
-
+ useEffect(()=>{
+    fetch('http://localhost:5000/review')
+    .then(res => res.json())
+    .then(data => setSomeReview(data))
+ },[])
     
     
 
@@ -81,29 +88,15 @@ const ServiceDetails = () => {
                         {/* review cart  */}
                         <div className='grid grid-cols-1 gap-2 lg:grid-cols-2'>
                             {/* cart one  */}
-                            <div className="card w-80 bg-primary text-primary-content">
-                                <div className="card-body">
-                                    <div className='flex'>
-                                        <h2 className="card-title"><img className='h-10 rounded ' src={user?.photoURL} alt="" /></h2>
-                                        <h2 className="card-title ml-3">Card title!</h2>
-                                    </div>
-                                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                                    <div className="card-actions justify-end">
-                                        <button className="btn">Buy Now</button>
-                                    </div>
-                                </div>
-                            </div>
+                            {
+                                someReview.map(review => <OthersReviewCart
+                                key={review._id}
+                                reviews={review}
+                                ></OthersReviewCart>)
+                            }
 
                             {/* cart tow  */}
-                            <div className="card w-80  bg-primary text-primary-content">
-                                <div className="card-body">
-                                    <h2 className="card-title">Card title!</h2>
-                                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                                    <div className="card-actions justify-end">
-                                        <button className="btn">Buy Now</button>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
 
