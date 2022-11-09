@@ -1,7 +1,7 @@
 import React from 'react';
 
 const OthersReviewCart = ({reviews}) => {
-    const {userPhoto, userName, review} = reviews;
+    const {userPhoto, userName, review, serviceName} = reviews;
     console.log(reviews)
     return (
         <div>
@@ -11,6 +11,7 @@ const OthersReviewCart = ({reviews}) => {
                         <h2 className="card-title"><img className='h-10 rounded ' src={userPhoto} alt="" /></h2>
                         <h2 className="card-title ml-3">{userName}</h2>
                     </div>
+                    <p className='text-xl'>Review for:{serviceName}</p>
                     <p className='text-xl'>Review:</p>
                     <p>{review}</p>
                     
