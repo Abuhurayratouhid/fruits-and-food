@@ -43,7 +43,7 @@ const Header = () => {
                     {
                         user?.email ?
                         <>
-                        <Link className='ml-5' to='/signUp'><li>My reviews</li></Link>
+                        <Link className='ml-5' to='/myReviews'><li>My reviews</li></Link>
                         <Link className='ml-5' to='/signUp'><li>Add service</li></Link>
 
                         </>

@@ -6,6 +6,7 @@ import Blog from "../Pages/Blog/Blog";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
+import MyReviews from "../Pages/ReviewPage/MyReviews";
 import SignUp from "../Pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
                 path: '/allServices',
                 element: <AllServices></AllServices>,
                 loader: ()=> fetch(`http://localhost:5000/allServices`)
+            },
+            {
+                path: '/myReviews',
+                element: <MyReviews></MyReviews>
             }
         ]
     }

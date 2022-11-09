@@ -7,15 +7,9 @@ const ServiceDetails = () => {
     const service = useLoaderData()
     const { name, picture, details, _id, price, rating } = service;
 
-    const review ={
-        userName: user?.displayName,
-        userPhoto: user?.photoURL,
-        email: user?.email,
-        serviceName: name,
-        serviceId: _id,
-    }
+    
 
-    console.log(review)
+    
     
 
     const handleTextArea = () => {
@@ -32,6 +26,29 @@ const ServiceDetails = () => {
         const reviewForm = event.target;
         const review = reviewForm.review.value;
         console.log(review)
+
+        const fullReview ={
+            userName: user?.displayName,
+            userPhoto: user?.photoURL,
+            email: user?.email,
+            serviceName: name,
+            serviceId: _id,
+            review: review,
+        }
+
+        // review send to the DB 
+        fetch('http://localhost:5000/review',{
+            method: 'POST',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(fullReview)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+        })
+
     }
     return (
         <div>
@@ -110,7 +127,7 @@ const ServiceDetails = () => {
                             <label className="label">
                                 <span className="label-text text-xl">Review:</span>
                             </label>
-                            <textarea name='review' onClick={handleTextArea} className="textarea textarea-secondary  h-56 " placeholder="Write yor review"></textarea>
+                            <textarea name='review' onClick={handleTextArea} className="textarea textarea-secondary  h-56 " placeholder="Write yor review" required></textarea>
 
 
                             
