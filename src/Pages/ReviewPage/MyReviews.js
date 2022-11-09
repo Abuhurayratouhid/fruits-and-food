@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Contaxt/AuthProvider';
 import ReviewCart from './ReviewCart';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MyReviews = () => {
     const {user} = useContext(AuthContext)
@@ -28,7 +30,7 @@ const MyReviews = () => {
             .then(data => {
                 console.log(data)
                 if(data.deletedCount > 0){
-                    alert('review deleted');
+                    toast.success('successfully deleted')
                     const remaining = reviews.filter(rev => rev._id !== _id);
                     setReviews(remaining)
                 }
@@ -54,7 +56,7 @@ const MyReviews = () => {
                 handleDelete={handleDelete}
                 ></ReviewCart>)
             }
-            
+          <ToastContainer />   
         </div>
     );
 };

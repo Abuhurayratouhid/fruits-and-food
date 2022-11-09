@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Achievement from '../../OthersComponents/Achievement';
 import Carousel from '../../OthersComponents/Carousel';
 import ServiceCart from '../../OthersComponents/ServiceCart';
 import Footer from '../../shared/Footer/Footer';
 import Banner from './Banner/Banner';
 import ExtraSection from './ExtraSection';
+import ReviewInHome from './ReviewInHome';
 import Services from './Services/Services';
 
 
 const Home = () => {
+    const allReviews = useLoaderData()
+    console.log(allReviews)
     const [services, setServices]= useState([])
 
     useEffect(()=>{
@@ -35,6 +38,17 @@ const Home = () => {
             </div>
             <Achievement></Achievement>
            <Carousel></Carousel>
+           <div>
+            <h1 className='text-center mt-10 text-5xl font-bold'> Why people like us:</h1>
+           </div>
+           <div className='grid gap-3 mt-10 grid-cols-1 lg:grid-cols-3'>
+           {
+            allReviews.map(reviews => <ReviewInHome
+            key={reviews._id}
+            reviews={reviews}
+            ></ReviewInHome>)
+           }
+           </div>
            <ExtraSection></ExtraSection>
            <Footer></Footer>
         </div>
