@@ -5,6 +5,7 @@ import Carousel from '../../OthersComponents/Carousel';
 import ServiceCart from '../../OthersComponents/ServiceCart';
 import Footer from '../../shared/Footer/Footer';
 import Banner from './Banner/Banner';
+import ExtraSection from './ExtraSection';
 import Services from './Services/Services';
 
 
@@ -34,6 +35,7 @@ const Home = () => {
             </div>
             <Achievement></Achievement>
            <Carousel></Carousel>
+           <ExtraSection></ExtraSection>
            <Footer></Footer>
         </div>
     );

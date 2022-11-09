@@ -3,10 +3,10 @@ import logo from '../Assets/logo.png';
 
 const Achievement = () => {
     return (
-        <div>
-            <div className="hero  bg-base-200 hidden lg:block">
+        <div >
+            <div className="hero md:h-72  hidden lg:block">
                 <div className="hero-content text-center">
-                    <div className="max-w-md">
+                    <div className="py-28 ">
                         <h1 className="text-4xl font-bold">Last week's Achievement  </h1>
                         <p className="py-6">Eat healthy food and be happy in your life.</p>
 
