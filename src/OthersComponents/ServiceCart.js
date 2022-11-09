@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BsArrowRight } from "react-icons/bs";
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const ServiceCart = ({ service }) => {
     const { name,price, picture, details, _id } = service;
@@ -8,8 +10,14 @@ const ServiceCart = ({ service }) => {
     
 
     return (
-        <div className="card w-96  bg-base-100 shadow-xl">
-            <figure><img className='h-72' src={picture} alt="Fruits and food" /></figure>
+        <PhotoProvider>
+            <div className="card w-96  bg-base-100 shadow-xl">
+            <figure>
+                <PhotoView src={picture}>
+                <img className='h-72' src={picture} alt="Fruits and food" />
+
+                </PhotoView>
+            </figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <h2 className="card-title">{price}</h2>
@@ -21,6 +29,7 @@ const ServiceCart = ({ service }) => {
                 </div>
             </div>
         </div>
+        </PhotoProvider>
     );
 };
 

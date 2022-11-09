@@ -1,12 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { BsArrowRight } from "react-icons/bs";
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const AllServiceCart = ({service}) => {
     const {name,price, picture, _id, details} = service;
     return (
-        <div className="card lg:card-side bg-base-100 shadow-xl">
-            <figure><img className='w-96 h-96' src={picture} alt="fruits and food" /></figure>
+        <PhotoProvider>
+            <div className="card lg:card-side bg-base-100 shadow-xl">
+            <figure>
+                <PhotoView src={picture}>
+                <img className='w-96 h-96' src={picture} alt="fruits and food" />
+
+                </PhotoView>
+            </figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <h2 className="card-title">{price}</h2>
@@ -18,6 +26,7 @@ const AllServiceCart = ({service}) => {
                 </div>
             </div>
         </div>
+        </PhotoProvider>
     );
 };
 
