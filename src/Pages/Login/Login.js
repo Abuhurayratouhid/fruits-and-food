@@ -4,10 +4,13 @@ import { AuthContext } from '../../Contaxt/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 
 const Login = () => {
-    const {userLogin} = useContext(AuthContext);
+    const {userLogin,loading} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation()
     useTitle('login')
+    if(loading){
+        return <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-orange-600 ml-[50%] "></div>
+    }
 
     let from = location.state?.from?.pathname || "/";
     const handleLogin = (event)=>{

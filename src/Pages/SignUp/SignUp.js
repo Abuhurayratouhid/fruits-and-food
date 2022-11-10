@@ -5,8 +5,11 @@ import { AuthContext } from '../../Contaxt/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 
 const SignUp = () => {
-    const {createUser,updateUser,googleLogin} = useContext(AuthContext)
+    const {createUser,updateUser,googleLogin,loading,setLoading} = useContext(AuthContext)
     useTitle('Sign up')
+    if(loading){
+        return <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-orange-600 ml-[50%] "></div>
+    }
     const handleSignUp= (event)=>{
         event.preventDefault();
         const form = event.target;
@@ -21,6 +24,7 @@ const SignUp = () => {
             // updateUser
             handleUserUpdate(name,photoURL)
             console.log(user)
+            setLoading(false)
         })
         .catch(error => {
             console.log(error)

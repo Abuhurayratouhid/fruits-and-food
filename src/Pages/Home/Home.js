@@ -15,13 +15,24 @@ const Home = () => {
     const allReviews = useLoaderData()
     console.log(allReviews)
     const [services, setServices]= useState([])
+    const [servicesLoading, setServicesLoading] = useState(true)
     useTitle('Home')
+    
 
     useEffect(()=>{
         fetch(`http://localhost:5000/services`)
         .then(res => res.json())
-        .then(data => setServices(data))
+        .then(data => {
+            setServices(data)
+            setServicesLoading(false)
+        })
     },[])
+
+    if(servicesLoading){
+
+        return <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-orange-600 ml-[50%] "></div>
+    }
+    
     return (
         <div>
             <Banner></Banner>
@@ -31,6 +42,7 @@ const Home = () => {
                     services.map(service => <ServiceCart
                     key={service._id}
                     service={service}
+                    
                     ></ServiceCart>)
                 }
             </div>
