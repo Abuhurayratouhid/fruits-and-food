@@ -15,7 +15,7 @@ const AddService = () => {
 
         const newService = {
             name: serviceName,
-            photo: servicePhoto,
+            picture: servicePhoto,
             price : servicePrice,
             details: serviceDetails
         }
