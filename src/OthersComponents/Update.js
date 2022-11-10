@@ -18,7 +18,7 @@ const Update = () => {
         const form = event.target;
         const newReview = form.newReview.value;
         const updatedReview = {
-            updatedReview : newReview,
+            latest : newReview,
         }
         setUpdateReview(updatedReview)
 
@@ -35,6 +35,7 @@ const Update = () => {
             console.log(data)
             if(data.modifiedCount > 0){
                 toast.success('Review Updated')
+                form.reset()
             }
         })
     }
