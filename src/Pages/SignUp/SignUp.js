@@ -5,14 +5,12 @@ import { AuthContext } from '../../Contaxt/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 
 const SignUp = () => {
-    const {user,createUser,updateUser,googleLogin,loading,setLoading} = useContext(AuthContext)
+    const {createUser,updateUser,googleLogin,loading,setLoading} = useContext(AuthContext)
     useTitle('Sign up')
     if(loading){
         return <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-orange-600 ml-[50%] "></div>
     }
-    if(user === ''){
-        setLoading(false)
-    }
+    
     const handleSignUp= (event)=>{
         event.preventDefault();
         const form = event.target;
@@ -53,6 +51,26 @@ const SignUp = () => {
     // login with google 
     const handleGoogleLogin= ()=>{
         googleLogin()
+        .then(result => {
+            const user = result.user;
+            const currentUser = {
+                email: user.email 
+            }
+            fetch('http://localhost:5000/jwt',{
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(currentUser)
+            }) 
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                localStorage.setItem('token', data.token);
+                
+            })
+        })
+        .catch(error => console.log(error))
 
     }
     return (
