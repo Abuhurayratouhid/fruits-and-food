@@ -4,6 +4,11 @@
 ## Some Features:
 
 - this site is one page application . so don't worry about loading perfomence. it will be faster .
+- this site is responsiv. that's way it's available for small and large devices both. 
+- it's easy to customize . this site is well documented . disent and clean designed. 
+- this site is build by tailwind css with daisy UI components . 
+- for awesome looks. used react icons, favicon, react photo view, etc.
+ 
 
 
 
