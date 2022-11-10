@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../Hooks/useTitle';
 import Achievement from '../../OthersComponents/Achievement';
 import Carousel from '../../OthersComponents/Carousel';
 import ServiceCart from '../../OthersComponents/ServiceCart';
@@ -14,6 +15,7 @@ const Home = () => {
     const allReviews = useLoaderData()
     console.log(allReviews)
     const [services, setServices]= useState([])
+    useTitle('Home')
 
     useEffect(()=>{
         fetch(`http://localhost:5000/services`)

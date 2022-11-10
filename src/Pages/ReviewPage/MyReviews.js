@@ -3,10 +3,12 @@ import { AuthContext } from '../../Contaxt/AuthProvider';
 import ReviewCart from './ReviewCart';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../Hooks/useTitle';
 
 const MyReviews = () => {
     const {user} = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
+    useTitle('My-Reviews')
     // console.log(reviews)
 
     
