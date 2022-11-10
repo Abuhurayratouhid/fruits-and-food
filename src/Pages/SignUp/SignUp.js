@@ -56,7 +56,7 @@ const SignUp = () => {
             const currentUser = {
                 email: user.email 
             }
-            fetch('http://localhost:5000/jwt',{
+            fetch('https://food-and-fruits-server.vercel.app/jwt',{
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

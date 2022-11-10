@@ -14,7 +14,7 @@ const ServiceDetails = () => {
 
     
  useEffect(()=>{
-    fetch('http://localhost:5000/review')
+    fetch('https://food-and-fruits-server.vercel.app/review')
     .then(res => res.json())
     .then(data => setSomeReview(data))
  },[])
@@ -46,7 +46,7 @@ const ServiceDetails = () => {
         }
 
         // review send to the DB 
-        fetch('http://localhost:5000/review',{
+        fetch('https://food-and-fruits-server.vercel.app/review',{
             method: 'POST',
             headers:{
                 'content-type': 'application/json'

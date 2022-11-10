@@ -21,7 +21,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: ()=> fetch('http://localhost:5000/reviewHome')
+                loader: ()=> fetch('https://food-and-fruits-server.vercel.app/reviewHome')
             },
             {
                 path: '/blog',
@@ -37,13 +37,13 @@ const router = createBrowserRouter([
             },
             {
                 path: '/details/:id',
-                loader: ({params})=> fetch(`http://localhost:5000/details/${params.id}`),
+                loader: ({params})=> fetch(`https://food-and-fruits-server.vercel.app/details/${params.id}`),
                 element: <ServiceDetails></ServiceDetails>
             },
             {
                 path: '/allServices',
                 element: <AllServices></AllServices>,
-                loader: ()=> fetch(`http://localhost:5000/allServices`)
+                loader: ()=> fetch(`https://food-and-fruits-server.vercel.app/allServices`)
             },
             {
                 path: '/myReviews',
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/update/:id',
-                loader: ({params})=> fetch(`http://localhost:5000/singleReview/${params.id}`),
+                loader: ({params})=> fetch(`https://food-and-fruits-server.vercel.app/singleReview/${params.id}`),
                 element: <Update></Update>
             }
         ]

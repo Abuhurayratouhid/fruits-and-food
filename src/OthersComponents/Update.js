@@ -23,7 +23,7 @@ const Update = () => {
         setUpdateReview(updatedReview)
 
         // // console.log(newReview)
-        fetch(`http://localhost:5000/updateReview/${review._id}`,{
+        fetch(`https://food-and-fruits-server.vercel.app/updateReview/${review._id}`,{
             method: 'PUT',
             headers: {
                 'content-type':'application/json'
