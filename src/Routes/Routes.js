@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import AllServices from "../OthersComponents/AllServices";
 import ServiceDetails from "../OthersComponents/ServiceDetails";
+import Update from "../OthersComponents/Update";
 import AddService from "../Pages/AddService/AddService";
 import Blog from "../Pages/Blog/Blog";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
             {
                 path:'/addService',
                 element: <PrivetRoute><AddService></AddService></PrivetRoute>
+            },
+            {
+                path: '/update/:id',
+                loader: ({params})=> fetch(`http://localhost:5000/singleReview/${params.id}`),
+                element: <Update></Update>
             }
         ]
     }

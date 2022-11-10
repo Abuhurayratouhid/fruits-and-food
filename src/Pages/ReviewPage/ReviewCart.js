@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contaxt/AuthProvider';
 
 const ReviewCart = ({reviews , handleDelete}) => {
@@ -14,7 +15,9 @@ const ReviewCart = ({reviews , handleDelete}) => {
                 <h2 className="card-title"> Review for : {serviceName} service</h2>
                 <p>Your Review: <br /> {review}</p>
                 <div className="card-actions justify-end">
+                    <Link to={`/update/${_id}`}>
                     <button className="btn bg-gray-400">Edit</button>
+                    </Link>
                     <button onClick={()=>handleDelete(_id)} className="btn btn-error">Delete</button>
                 </div>
             </div>

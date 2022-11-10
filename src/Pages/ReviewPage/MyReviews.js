@@ -15,7 +15,7 @@ const MyReviews = () => {
 
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/review?email=${user?.email}`)
+        fetch(`http://localhost:5000/userReview?email=${user?.email}`)
         .then(res => res.json())
         .then(data => setReviews(data))
     },[user?.email])

@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../Contaxt/AuthProvider';
 import OthersReviewCart from './OthersReviewCart';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ServiceDetails = () => {
     const [someReview, setSomeReview] = useState([])
@@ -54,6 +56,10 @@ const ServiceDetails = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            if(data.insertedId){
+                toast.success('Review added')
+                reviewForm.reset()
+            }
         })
 
     }
@@ -137,6 +143,7 @@ const ServiceDetails = () => {
 
 
             </div>
+            <ToastContainer/>
         </div>
     );
 };
