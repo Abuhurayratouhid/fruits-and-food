@@ -1,3 +1,12 @@
+# Fruits and food delivery service
+###live website link [https://fruits-and-food.web.app/]
+
+## Some Features:
+
+- this site is one page application . so don't worry about loading perfomence. it will be faster .
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
