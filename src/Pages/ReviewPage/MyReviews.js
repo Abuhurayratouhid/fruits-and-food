@@ -4,15 +4,17 @@ import ReviewCart from './ReviewCart';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useTitle from '../../Hooks/useTitle';
+import Loading from '../../OthersComponents/Loading';
 
 const MyReviews = () => {
     const {user} = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
+    const [reviewLoading,setReviewLoading]= useState(true)
     useTitle('My-Reviews')
     // console.log(reviews)
 
     
-
+ 
 
     useEffect(()=>{
         fetch(`https://food-and-fruits-server.vercel.app/userReview?email=${user?.email}`,{
@@ -21,7 +23,10 @@ const MyReviews = () => {
             }
         })
         .then(res => res.json())
-        .then(data => setReviews(data))
+        .then(data => {
+            setReviews(data)
+            setReviewLoading(false)
+        })
     },[user?.email])
 
 
@@ -39,6 +44,7 @@ const MyReviews = () => {
                     toast.success('successfully deleted')
                     const remaining = reviews.filter(rev => rev._id !== _id);
                     setReviews(remaining)
+                    
                 }
             })
             
@@ -46,6 +52,10 @@ const MyReviews = () => {
         }
         
     }
+
+    if(reviewLoading){
+        return <Loading></Loading>
+     }
     return (
         <div>
             {
@@ -55,6 +65,7 @@ const MyReviews = () => {
                 <h1 className='text-center my-10 text-3xl font-semibold'>You have not added any reviews yet</h1>
                 
             }
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
             {
                 reviews.map(review => <ReviewCart
                 key={review._id}
@@ -62,6 +73,7 @@ const MyReviews = () => {
                 handleDelete={handleDelete}
                 ></ReviewCart>)
             }
+            </div>
           <ToastContainer />   
         </div>
     );

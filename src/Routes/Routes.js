@@ -10,7 +10,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MyReviews from "../Pages/ReviewPage/MyReviews";
 import SignUp from "../Pages/SignUp/SignUp";
-import PrivetRoute from "./PrivetRoute";
+
 
 const router = createBrowserRouter([
     {
@@ -47,11 +47,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/myReviews',
-                element: <PrivetRoute><MyReviews></MyReviews></PrivetRoute>
+                element: <MyReviews></MyReviews>
             },
             {
                 path:'/addService',
-                element: <PrivetRoute><AddService></AddService></PrivetRoute>
+                element: <AddService></AddService>
             },
             {
                 path: '/update/:id',

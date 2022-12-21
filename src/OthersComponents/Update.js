@@ -8,7 +8,7 @@ const Update = () => {
     const review = useLoaderData()
     const [test, setTest] = useState(review)
     const [updateReview , setUpdateReview] = useState(review)
-    console.log( updateReview)
+    console.log('review',  review)
     // const updatedReview = {
     //     updateReview,
     // }
@@ -41,7 +41,7 @@ const Update = () => {
     }
 
     return (
-        <div>
+        <div className='max-w-[600px] mx-auto'>
             <h1 className='text-center text-3xl font-bold '> Update your review {review?.serviceName}</h1>
             <form onSubmit={handleUpdateReview} className="card-body">
                         

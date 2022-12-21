@@ -2,7 +2,7 @@ import React from 'react';
 
 const TopOfNav = () => {
     return (
-        <div className='flex justify-between text-white bg-gradient-to-r from-yellow-300  to-red-500'>
+        <div className='p-2 flex justify-between text-white bg-gradient-to-r from-yellow-300  to-red-500'>
             <div className=''>
             <h1 className=''><small>Free Shipping On Order Above $50</small></h1>
             </div>

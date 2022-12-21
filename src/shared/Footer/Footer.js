@@ -3,8 +3,8 @@ import logo from '../../Assets/logo.png'
 
 const Footer = () => {
     return (
-        <div>
-            <footer className="footer p-10 bg-base-200 text-base-content">
+        <div className='mt-10'>
+            <footer className="footer p-10 bg-slate-400 text-base-content">
                 <div>
                     <span className="footer-title">Services</span>
                     <a className="link link-hover">Branding</a>
@@ -26,9 +26,9 @@ const Footer = () => {
                     <a className="link link-hover">Cookie policy</a>
                 </div>
             </footer>
-            <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
+            <footer className="footer px-10 py-4 border-t bg-slate-400 text-base-content border-base-300">
                 <div className="items-center grid-flow-col">
-                    <img className='h-10' src={logo} alt="" />
+                    {/* <img className='h-5' src={logo} alt="" /> */}
                     <p>FRUITPLANET Industries Ltd. <br />Providing service 2021</p>
                 </div>
                 <div className="md:place-self-center md:justify-self-end">

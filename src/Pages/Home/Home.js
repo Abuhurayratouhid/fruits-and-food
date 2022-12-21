@@ -37,7 +37,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <Services></Services>
-            <div className='grid grid-cols-1 lg:grid-cols-3'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 max-w-[1200px] mx-auto'>
             {
                     services.map(service => <ServiceCart
                     key={service._id}

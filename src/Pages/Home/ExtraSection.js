@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ExtraSection = () => {
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-base-200 mt-10">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center bg-white rounded-l-full lg:h-[300px] py-20">
                     <h1 className="text-5xl font-bold">Let's keep in touch</h1>
